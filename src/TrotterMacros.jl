@@ -1,12 +1,12 @@
-module PauliSums
+module TrotterMacros
 
 using DataStructures
+using MacroTools
+using LocalOperators
 
-export @hamiltonian, @liouvillian
+export @hamiltonian, @liouvillian, @infliouvillian
 
-include("pauli.jl")
-include("vectorise.jl")
-include("macros.jl")
-include("localop.jl")
+include("utils.jl")
+include("parse.jl")
 
-end # module PauliSums
+end # module TrotterMacros
