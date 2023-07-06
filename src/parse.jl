@@ -166,8 +166,8 @@ macro infliouvillian(ex_H, ex_Ls...)
     ex_H_y = :([$(H_y...)])
     Ls_xy = parse_expression.(ex_Ls)
 
-    Ls_x = :([$(vec2sum.(getindex.(Ls_xy, 1))...)])
-    Ls_y = :([$(vec2sum.(getindex.(Ls_xy, 2))...)])
+    Ls_x = :([$(vec2sum.(getindex.(Ls_xy, 1))...)]; is2d = true)
+    Ls_y = :([$(vec2sum.(getindex.(Ls_xy, 2))...)]; is2d = true)
     rv = quote
         begin
             v_x = infvectorise($ex_H_x, $Ls_x)
