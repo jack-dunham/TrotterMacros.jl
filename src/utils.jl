@@ -56,8 +56,10 @@ function scalefunc(f, v::Vector{<:AbstractMatrix}, k; is2d=false)
         is2d = false
     end
 
-    coeff = 1 / 2^(is2d)
+    coeff = 2^(is2d)
 
+    @debug "" k length(v) coeff
+    
     rv = map(x -> (1 / (length(v) * coeff)) * f(x), v)
     return rv
 end
